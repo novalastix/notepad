@@ -8,7 +8,7 @@ https://novalastix.github.io/notepad/
 - Custom print script to remove UI for a clean print.
 - Typeface with distinct symbols for similar characters (i,I,l,1 etc).
 - QR Code generation via barcodeapi.org
-- Togglable 8.5x11" Sized text area.
+- Togglable 8.5x11" text area.
 - Download and printing buttons.
 
 ---
