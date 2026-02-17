@@ -50,10 +50,11 @@ a:hover
   stroke-width: 1em;
 }
 
-a svg
+a svg, a img
 {
   vertical-align: middle;
 }
+
 
 textarea
 {

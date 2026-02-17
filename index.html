@@ -1,33 +1,31 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
     <head>
-        <title>Untitled Document</title>
+        <title>Online Notepad</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
         <main id="main">
             <header>
-                <div class="left" id="title">Untitled Document</div>
+                <div class="left" id="title">Online Notepad v2.0</div>
                 <div class="right">
-                    <a href="#" onclick="printPage()" title="Print Document">
-                        <svg height="24px" viewBox="0 -960 960 960" width="24px"><path d="M640-640v-120H320v120h-80v-200h480v200h-80Zm-480 80h640-640Zm560 100q17 0 28.5-11.5T760-500q0-17-11.5-28.5T720-540q-17 0-28.5 11.5T680-500q0 17 11.5 28.5T720-460Zm-80 260v-160H320v160h320Zm80 80H240v-160H80v-240q0-51 35-85.5t85-34.5h560q51 0 85.5 34.5T880-520v240H720v160Zm80-240v-160q0-17-11.5-28.5T760-560H200q-17 0-28.5 11.5T160-520v160h80v-80h480v80h80Z"/></svg>
+                    <a href="javascript:;" onclick="qr()" title="Generate QR Code">
+                        <img src="/ico/qr.svg" alt="QR Code Button">
                     </a>
-                    <a href="#" onclick="rename()" title="Rename Document">
-                        <svg height="24px" viewBox="0 -960 960 960" width="24px"><path d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h357l-80 80H200v560h560v-278l80-80v358q0 33-23.5 56.5T760-120H200Zm280-360ZM360-360v-170l367-367q12-12 27-18t30-6q16 0 30.5 6t26.5 18l56 57q11 12 17 26.5t6 29.5q0 15-5.5 29.5T897-728L530-360H360Zm481-424-56-56 56 56ZM440-440h56l232-232-28-28-29-28-231 231v57Zm260-260-29-28 29 28 28 28-28-28Z"/></svg>
+                    <a href="javascript:;" onclick="changeSize()" title="Switch Size">
+                        <img src="/ico/letter.svg" alt="Resize Button">
                     </a>
-                    <a href="#" onclick="changeView()" title="Toggle Editor">
-                        <svg height="24px" viewBox="0 -960 960 960" width="24px"><path d="M480-320q75 0 127.5-52.5T660-500q0-75-52.5-127.5T480-680q-75 0-127.5 52.5T300-500q0 75 52.5 127.5T480-320Zm0-72q-45 0-76.5-31.5T372-500q0-45 31.5-76.5T480-608q45 0 76.5 31.5T588-500q0 45-31.5 76.5T480-392Zm0 192q-146 0-266-81.5T40-500q54-137 174-218.5T480-800q146 0 266 81.5T920-500q-54 137-174 218.5T480-200Zm0-300Zm0 220q113 0 207.5-59.5T832-500q-50-101-144.5-160.5T480-720q-113 0-207.5 59.5T128-500q50 101 144.5 160.5T480-280Z"/></svg>
+                    <a href="javascript:;" onclick="printPage()" title="Print Document">
+                        <img src="/ico/print.svg" alt="Print Button">
                     </a>
-                    <a href="#" onclick="changeSize()" title="Switch Size">
-                        <svg height="24px" viewBox="0 -960 960 960" width="24px"><path d="M240-80q-33 0-56.5-23.5T160-160v-640q0-33 23.5-56.5T240-880h320l240 240v480q0 33-23.5 56.5T720-80H240Zm280-520v-200H240v640h480v-440H520ZM240-800v200-200 640-640Z"/></svg>
+                    <a href="javascript:;" onclick="downloadPage()" title="Download">
+                        <img src="/ico/download.svg" alt="Download Button">
                     </a>
                 </div>
             </header>
             <textarea id="page" autofocus></textarea>
-            <div id="markdown"></div>
         </main>  
     </body>
-    <script src="drawdown.js"></script>
     <script src="main.js"></script>
 </html>

@@ -1,10 +1,4 @@
-const pageTitle = document.getElementById("title");
-const main = document.getElementById("main");
 const page = document.getElementById("page");
-const markdownPage = document.getElementById("markdown");
-
-var edit = true;
-var pageText = "";
 var letter=true;
 
 function printPage()
@@ -13,34 +7,24 @@ function printPage()
     return false;
 }
 
-function rename()
+function downloadPage()
 {
-    let name = prompt("Document Name", document.title);
-    if (name == null || name == "") name="Notepad";
-    pageTitle.innerHTML="";
-    pageTitle.appendChild(document.createTextNode(name));
-    document.title=name;
-    return false;
-}
-
-function changeView()
-{
-    if(edit)
-    {
-        edit=false;
-        page.style.display = "none";
-        pageText = page.value
-        markdownPage.innerHTML = markdown(pageText);
-        markdownPage.style.display = "unset";
-    }
-    else
-    {
-        edit=true;
-        markdownPage.style.display = "none";
-        markdownPage.innerHTML="";
-        page.value=pageText
-        page.style.display = "unset";
-    }
+    var txtBlob = new Blob([page.value], {type:'text/plain'});
+    var dlLink = document.createElement("a");
+    	dlLink.download = "note.txt";
+    	dlLink.innerHTML = "Download File";
+    	if (window.webkitURL != null)
+    	{
+    		dlLink.href = window.webkitURL.createObjectURL(txtBlob);
+    	}
+    	else
+    	{
+    		dlLink.href = window.URL.createObjectURL(txtBlob);
+    		dlLink.onclick = destroyClickedElement;
+    		dlLink.style.display = "none";
+    		document.body.appendChild(dlLink);
+    	}
+    	dlLink.click();
     return false;
 }
 
@@ -50,8 +34,8 @@ function changeSize()
     {
         letter = false;
 
-        main.style.maxWidth = "4in";
-        main.style.maxHeight = "6in";
+        main.style.maxWidth = "unset";
+        main.style.maxHeight = "unset";
     }
     else
     {
@@ -61,4 +45,11 @@ function changeSize()
         main.style.maxHeight = "11in";
     }
     return false;
+}
+
+function qr()
+{
+    var txt = page.value;
+    var barcodeAPI = "https://barcodeapi.org/api/qr/"
+    window.open(barcodeAPI+txt, "_blank");
 }
